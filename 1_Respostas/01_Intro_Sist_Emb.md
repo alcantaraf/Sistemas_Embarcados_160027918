@@ -1,11 +1,11 @@
 ##### 1. O que são sistemas embarcados?
-
+	Os sistemas embarcados, são sistemas microprocessados, nos quais o computador está encapsulado/confinado. Estes sistemas são contruídos com propósito único, realizando unicamente as tarefas requeridas pelo projeto, assim sendo otimizado. 
 ##### 2. O que são sistemas microprocesssados?
-
+	Sistemas microprossecados
 ##### 3. Apresente aplicações de sistemas embarcados:
-	####### (a) Para a indústria automotiva;
-	####### (b) Para eletrodomésticos;
-	####### (c) Para automação industrial.
+	 (a) Para a indústria automotiva;
+	 (b) Para eletrodomésticos;
+	 (c) Para automação industrial.
 
 ##### 4. Cite arquiteturas possíveis e as diferenças entre elas.
 
