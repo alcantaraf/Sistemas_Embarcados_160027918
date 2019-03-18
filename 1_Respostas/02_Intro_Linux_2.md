@@ -1,7 +1,7 @@
 Para todas as questões, escreva os comandos correspondentes no terminal.
 
 #### 1. Escreva o texto "Ola mundo cruel!" em um arquivo denominado "Ola_mundo.txt". Apresente o conteúdo deste arquivo no terminal.
-``` Linux
+``` Python
 echo Ola mundo cruel > Ola_mundo.txt
 ```
 #### 2. Apresente o nome de todos os arquivos e pastas na pasta 'root'.
