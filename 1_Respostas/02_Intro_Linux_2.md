@@ -5,6 +5,9 @@ Para todas as questões, escreva os comandos correspondentes no terminal.
 echo Ola mundo cruel > Ola_mundo.txt
 ```
 #### 2. Apresente o nome de todos os arquivos e pastas na pasta 'root'.
+``` Python
+ls /
+```
 
 #### 3. Apresente o tipo de todos os arquivos e pastas na pasta 'root'.
 
