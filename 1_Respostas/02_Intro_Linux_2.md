@@ -15,7 +15,7 @@ ls /
 ```
 #### 4. Apresente somente as pastas dentro da pasta 'root'.
 ``` bash
-
+ cd / [TAB]
 ```
 
 #### 5. Descubra em que dia da semana caiu o seu aniversário nos últimos dez anos.
