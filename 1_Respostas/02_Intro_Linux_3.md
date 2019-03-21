@@ -16,7 +16,29 @@ Para todas as questões, escreva os scripts e as chamadas correspondentes no ter
 ```script
 ./cals.sh MES1 ANO1 MES2 ANO2 MES3 ANO3
 ```
-
+```script
+#!/bin/bash
+echo 'Olá deseja inserir um Mês e um Ano(1-sim|2-não)?'
+read opcao
+i=0
+while [ $opcao == '1' ]
+do
+	i=$((i+1)) 
+	echo 'Digite o Mês:'
+	read 'MES'
+	$((MES$i))=$MES
+	echo 'MES$i'
+	echo 'Digite o Ano:'
+	read 'ANO$i'
+	echo 'Deseja inserir um Mês e um Ano(1-sim|2-não)?'
+	read opcao
+done
+while [ $i != '0' ]
+do
+	cal MES$i ANO$i
+	i=$((i-1)) 
+done
+```
 Não limite o script a 3 meses. Ele deve funcionar para vários casos, como por exemplo:
 
 ```script
