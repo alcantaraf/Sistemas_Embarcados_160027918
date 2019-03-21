@@ -37,35 +37,35 @@ Para as questões a seguir, use a pasta no endereço https://github.com/DiogoCae
 
 #### 6. Liste somente os arquivos com extensão .txt.
 ``` bash
-
+ls *.txt
 ```
 
 #### 7. Liste somente os arquivos com extensão .png.
 ``` bash
-
+ls *.pnng
 ```
 
 #### 8. Liste somente os arquivos com extensão .jpg.
 ``` bash
-
+ls *.jpg
 ```
 
 #### 9. Liste somente os arquivos com extensão .gif.
 ``` bash
-
+ls *.gif
 ```
 
 #### 10. Liste somente os arquivos que contenham o nome 'cal'.
 ``` bash
-
+ls *cal*
 ```
 
 #### 11. Liste somente os arquivos que contenham o nome 'tux'.
 ``` bash
-
+ls *tux*
 ```
 
 #### 12. Liste somente os arquivos que comecem com o nome 'tux'.
 ``` bash
-
+ls tux*
 ```
