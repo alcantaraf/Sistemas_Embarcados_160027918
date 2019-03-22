@@ -2,6 +2,16 @@ Para todas as questões, compile-as com o gcc e execute-as via terminal.
 
 1. Crie um "Olá mundo!" em C.
 
+```C
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char **argv)
+{
+  printf("Ola mundo!\n");
+	return 0;
+}
+```
+
 2. Crie um código em C que pergunta ao usuário o seu nome, e imprime no terminal "Ola " e o nome do usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_1':
 
 ```bash
@@ -9,7 +19,18 @@ $ ./ola_usuario_1
 $ Digite o seu nome: Eu
 $ Ola Eu
 ```
-
+```C
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char **argv)
+{
+  char nome[200];
+  printf("Digite o seu nome:\n");
+  scanf("%s",nome);
+  printf("Ola %s!\n",nome);
+  return 0;
+}
+```
 3. Apresente os comportamentos do código anterior nos seguintes casos:
 
 (a) Se o usuário insere mais de um nome.
@@ -17,33 +38,43 @@ $ Ola Eu
 $ ./ola_usuario_1
 $ Digite o seu nome: Eu Mesmo
 ```
+Resposta: Aparece apenas o primeiro nome.
 
 (b) Se o usuário insere mais de um nome entre aspas duplas. Por exemplo:
 ```bash
 $ ./ola_usuario_1
 $ Digite o seu nome: "Eu Mesmo"
 ```
+Resposta: Mostra "Eu unicamente
 
 (c) Se é usado um pipe. Por exemplo:
 ```bash
 $ echo Eu | ./ola_usuario_1
 ```
+Resposta: Digite o seu nome:
+          Ola, Eu!
 
 (d) Se é usado um pipe com mais de um nome. Por exemplo:
 ```bash
 $ echo Eu Mesmo | ./ola_usuario_1
 ```
+Resposta: Digite o seu nome:
+          Ola, Eu!
 
 (e) Se é usado um pipe com mais de um nome entre aspas duplas. Por exemplo:
 ```bash
 $ echo "Eu Mesmo" | ./ola_usuario_1
 ```
+Resposta: Digite o seu nome:
+          Ola, Eu!
 
 (f) Se é usado o redirecionamento de arquivo. Por exemplo:
 ```bash
 $ echo Ola mundo cruel! > ola.txt
 $ ./ola_usuario_1 < ola.txt
 ```
+resposta: Digite o seu nome:
+          Ola, Ola!
 
 4. Crie um código em C que recebe o nome do usuário como um argumento de entrada (usando as variáveis argc e *argv[]), e imprime no terminal "Ola " e o nome do usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_2':
 
