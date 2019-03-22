@@ -18,15 +18,17 @@ Para todas as questões, escreva os scripts e as chamadas correspondentes no ter
 ```
 ```script
 #!/bin/bash
-i=1
-j=1
-k=0
-while [ $i != $# ]
-do
-k=$(($j+1)) 
-cal $($j) $($k)
-j=$((j+2))
-i=$((i+1))
+n=0 
+args=""
+for i in $@
+do 
+	if [ $n -eq 0 ]; then
+		args=$i
+		n=1
+	elif [ $n -eq 1 ]; then
+	 cal $args $i
+	 n=0
+	fi
 done
 
 ```
