@@ -18,26 +18,17 @@ Para todas as questões, escreva os scripts e as chamadas correspondentes no ter
 ```
 ```script
 #!/bin/bash
-echo 'Olá deseja inserir um Mês e um Ano(1-sim|2-não)?'
-read opcao
-i=0
-while [ $opcao == '1' ]
+i=1
+j=1
+k=0
+while [ $i != $# ]
 do
-	i=$((i+1)) 
-	echo 'Digite o Mês:'
-	read 'MES'
-	$((MES$i))=$MES
-	echo 'MES$i'
-	echo 'Digite o Ano:'
-	read 'ANO$i'
-	echo 'Deseja inserir um Mês e um Ano(1-sim|2-não)?'
-	read opcao
+k=$(($j+1)) 
+cal $($j) $($k)
+j=$((j+2))
+i=$((i+1))
 done
-while [ $i != '0' ]
-do
-	cal MES$i ANO$i
-	i=$((i-1)) 
-done
+
 ```
 Não limite o script a 3 meses. Ele deve funcionar para vários casos, como por exemplo:
 
