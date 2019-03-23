@@ -268,7 +268,7 @@ int main(int argc, char **argv)
 ### 10. Crie um Makefile para a questão anterior.
 
 **Resposta:**
-```bash
+```script
 num_caracs_1: main.o num_caracs.o
 	gcc $(CFLAGS) -o ola_num_caracs_1 main.o num_caracs.o
 main.o: main.c num_caracs.h
