@@ -285,5 +285,36 @@ clean:
 $ ./ola_num_caracs_2 Eu Mesmo
 $ Total de caracteres de entrada: 25
 ```
+**Resposta:**
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "num_caracs.h"
 
+int main(int argc, char **argv)
+{
+	int i=0;
+	int numC = 0;
+  while (i != argc ) {
+    numC = numC + num_caracs(argv[i]);
+    i++;
+  }
+  printf("Total de caracteres de entrada: %d\n",numC);
+	return 0;
+}
+
+```
 ### 12. Crie um Makefile para a questão anterior.
+**Resposta:**
+```script
+num_caracs_1: main.o num_caracs.o
+	gcc $(CFLAGS) -o ola_num_caracs_2 main.o num_caracs.o
+main.o: main.c num_caracs.h
+	gcc $(CFLAGS) -c main.c
+num_caracs.o: num_caracs.c num_caracs.h
+	gcc $(CFLAGS) -c num_caracs.c
+clean:
+	rm -f *.o num_caracs
+
+```
