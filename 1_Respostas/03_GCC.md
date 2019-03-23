@@ -93,6 +93,20 @@ $ Ola, Ola!
 $ ./ola_usuario_2 Eu
 $ Ola Eu
 ```
+**Resposta:**
+```C
+#include <stdio.h>
+#include <stdlib.h>
+int main(int argc, char **argv){
+  int i=1;
+  printf("Ola ");
+  while (i != argc ) {
+    printf("%s ",argv[i]);
+    i++;
+  }
+  printf("\n");
+}
+```
 
 ### 5. Apresente os comportamentos do código anterior nos seguintes casos:
 
@@ -100,33 +114,65 @@ $ Ola Eu
 ```bash
 $ ./ola_usuario_2 Eu Mesmo
 ```
+**Resposta:** 
+```bash
+$ ./Ola_usuario_2 Eu Mesmo
+Ola Eu Mesmo 
 
+```
 ##### (b) Se o usuário insere mais de um nome entre aspas duplas. Por exemplo:
 ```bash
 $ ./ola_usuario_2 "Eu Mesmo"
 ```
+**Resposta:** 
+```bash
+$ ./Ola_usuario_2 "Eu Mesmo"
+Ola Eu Mesmo 
 
+```
 ##### (c) Se é usado um pipe. Por exemplo:
 ```bash
 $ echo Eu | ./ola_usuario_2
+```
+**Resposta:** 
+```bash
+$ echo Eu | ./Ola_usuario_2
+Ola 
+
 ```
 
 ##### (d) Se é usado um pipe com mais de um nome. Por exemplo:
 ```bash
 $ echo Eu Mesmo | ./ola_usuario_2
 ```
+**Resposta:** 
+```bash
+$ echo Eu Mesmo | ./Ola_usuario_2
+Ola 
+
+```
 
 ##### (e) Se é usado um pipe com mais de um nome entre aspas duplas. Por exemplo:
 ```bash
-$ echo Eu Mesmo | ./ola_usuario_2
+$ echo "Eu Mesmo" | ./ola_usuario_2
 ```
+**Resposta:** 
+```bash
+$ echo "Eu Mesmo" | ./Ola_usuario_2
+Ola 
 
+```
 ##### (f) Se é usado o redirecionamento de arquivo. Por exemplo:
 ```bash
 $ echo Ola mundo cruel! > ola.txt
 $ ./ola_usuario_2 < ola.txt
 ```
+**Resposta:** 
+```bash
+$ ./Ola_usuario_2 < ola.txt
+Ola 
 
+```
 ### 6. Crie um código em C que faz o mesmo que o código da questão 4, e em seguida imprime no terminal quantos valores de entrada foram fornecidos pelo usuário. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_3':
 
 ```bash
