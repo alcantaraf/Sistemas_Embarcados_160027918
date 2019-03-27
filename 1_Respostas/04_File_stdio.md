@@ -34,20 +34,39 @@ $ Idade: 30 anos
 ```C
 #include<stdio.h>
 #include <stdlib.h>
+#include<string.h>
 int main()
 {
   FILE *fp;
-  char str[] = "Ola mundo!\n";
-  fp = fopen("ola_mundo.txt","w");
+  int i;
+  char nome[20], idade[5],dest[20] =".txt",arq[100]="";
+  char frase_1[100] = "Nome:", frase_2[100]= "Idade: ";
+  printf("Digite o seu nome: ");
+  scanf("%s", nome);
+  printf("Digite o sua idade: ");
+  scanf("%s", idade );
+  strcat(arq,nome);
+  strcat(arq,dest);
+  fp = fopen(arq,"w");
   if(!fp){
-    printf( "Erro na abertura do arquivo");
-    exit(0); }
-  fwrite(str, sizeof(str), 1, fp);
-
+    printf( "Erro na abertura do arquivo\n");
+    exit(1); }
+    strcat(frase_1, nome);
+    strcat(frase_2, idade);
+    strcat(frase_2, "\banos");
+  for(i=0; frase_1[i]; i++){
+    putc(frase_1[i],fp);
+  }
+  putc('\n', fp);
+  for(i=0; frase_2[i]; i++){
+    putc(frase_2[i],fp);
+  }
+  putc('\n', fp);
 
   fclose(fp);
   return (0);
 }
+
 ```
 3. Crie um código em C que recebe o nome do usuário e e sua idade como argumentos de entrada (usando as variáveis `argc` e `*argv[]`), e escreve este conteúdo em um arquivo com o seu nome e extensão '.txt'. Por exemplo, considerando que o código criado recebeu o nome de 'ola_usuario_2':
 
