@@ -76,7 +76,48 @@ $ cat Eu.txt
 $ Nome: Eu
 $ Idade: 30 anos
 ```
+**Resposta:**
+```C
+**Resposta:**
+```C
+#include<stdio.h>
+#include <stdlib.h>
+#include<string.h>
+int main()
+{
+  FILE *fp;
+  int i;
+  char nome[20], idade[5],dest[20] =".txt",arq[100]="";
+  char frase_1[100] = "Nome:", frase_2[100]= "Idade: ";
+  printf("Digite o seu nome: ");
+  scanf("%s", nome);
+  printf("Digite o sua idade: ");
+  scanf("%s", idade );
+  strcat(arq,nome);
+  strcat(arq,dest);
+  fp = fopen(arq,"w");
+  if(!fp){
+    printf( "Erro na abertura do arquivo\n");
+    exit(1); }
+    strcat(frase_1, nome);
+    strcat(frase_2, idade);
+    strcat(frase_2, "\banos");
+  for(i=0; frase_1[i]; i++){
+    putc(frase_1[i],fp);
+  }
+  putc('\n', fp);
+  for(i=0; frase_2[i]; i++){
+    putc(frase_2[i],fp);
+  }
+  putc('\n', fp);
 
+  fclose(fp);
+  return (0);
+}
+
+```
+
+```
 4. Crie uma função que retorna o tamanho de um arquivo, usando o seguinte protótipo: `int tam_arq_texto(char *nome_arquivo);` Salve esta função em um arquivo separado chamado 'bib_arqs.c'. Salve o protótipo em um arquivo chamado 'bib_arqs.h'. Compile 'bib_arqs.c' para gerar o objeto 'bib_arqs.o'.
 
 5. Crie uma função que lê o conteúdo de um arquivo-texto e o guarda em uma string, usando o seguinte protótipo: `char* le_arq_texto(char *nome_arquivo);` Repare que o conteúdo do arquivo é armazenado em um vetor interno à função, e o endereço do vetor é retornado ao final. (Se você alocar este vetor dinamicamente, lembre-se de liberar a memória dele quando acabar o seu uso.) Salve esta função no mesmo arquivo da questão 4, chamado 'bib_arqs.c'. Salve o protótipo no arquivo 'bib_arqs.h'. Compile 'bib_arqs.c' novamente para gerar o objeto 'bib_arqs.o'.
