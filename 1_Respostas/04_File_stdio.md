@@ -157,7 +157,7 @@ int tam_arq_texto(char *nome_arquivo);
 char* le_arq_texto(char *nome_arquivo){
   FILE *fp = fopen(nome_arquivo, "r");
   long fsize;
-  int tamanho = tam_arq_texto(char *nome_arquivo);
+  int tamanho = tam_arq_texto(nome_arquivo);
   char *string = malloc(sizeof(char)*tamanho);
 
   if(!fp){
@@ -167,8 +167,10 @@ char* le_arq_texto(char *nome_arquivo){
 
   fread(string, tamanho, 1, fp);
   fclose(fp);
-  free(string);
+  //printf("%s", string);
+  //free(string);
   return string;
+
 }
 
 
@@ -188,6 +190,7 @@ int tam_arq_texto(char *nome_arquivo){
 return i;
 }
 
+
 //bib_arqs.h
 int tam_arq_texto(char *nome_arquivo);
 char* le_arq_texto(char *nome_arquivo);
@@ -202,6 +205,39 @@ char* le_arq_texto(char *nome_arquivo);
 $ echo Ola mundo cruel! Ola universo ingrato! > ola.txt
 $ ./cat_falsificado ola.txt
 $ Ola mundo cruel! Ola universo ingrato!
+```
+
+**Resposta:**
+
+```C
+\\MAKEFILE
+num_caracs_1: main.o bib_arqs.o
+	gcc $(CFLAGS) -o cat_falsificado main.o bib_arqs.o
+main.o: main.c bib_arqs.h
+	gcc $(CFLAGS) -c main.c
+num_caracs.o: bib_arqs.c bib_arqs.h
+	gcc $(CFLAGS) -c bib_arqs.c
+clean:
+	rm -f *.o cat_falsificado
+\\main.c  
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "bib_arqs.h"
+
+int main(int argc, char **argv)
+{
+	int tamanho = tam_arq_texto(argv[1]);
+	printf("%d", tamanho);
+	printf("\n");
+	char *texto = malloc(sizeof(char)*tamanho);
+	texto = le_arq_texto(argv[1]);
+	printf("%s", texto);
+	free(texto);
+	return 0;
+}
+
+
 ```
 
 7. Crie um código em C que conta a ocorrência de uma palavra-chave em um arquivo-texto, e escreve o resultado no terminal. Reaproveite as funções já criadas nas questões anteriores. Por exemplo, considerando que o código criado recebeu o nome de 'busca_e_conta':
