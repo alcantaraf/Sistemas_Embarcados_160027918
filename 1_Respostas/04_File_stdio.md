@@ -247,3 +247,10 @@ $ echo Ola mundo cruel! Ola universo ingrato! > ola.txt
 $ ./busca_e_conta Ola ola.txt
 $ 'Ola' ocorre 2 vezes no arquivo 'ola.txt'.
 ```
+
+**Resposta:**
+
+```C
+
+
+```
