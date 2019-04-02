@@ -144,6 +144,58 @@ int tam_arq_texto(char *nome_arquivo);
 
 5. Crie uma função que lê o conteúdo de um arquivo-texto e o guarda em uma string, usando o seguinte protótipo: `char* le_arq_texto(char *nome_arquivo);` Repare que o conteúdo do arquivo é armazenado em um vetor interno à função, e o endereço do vetor é retornado ao final. (Se você alocar este vetor dinamicamente, lembre-se de liberar a memória dele quando acabar o seu uso.) Salve esta função no mesmo arquivo da questão 4, chamado 'bib_arqs.c'. Salve o protótipo no arquivo 'bib_arqs.h'. Compile 'bib_arqs.c' novamente para gerar o objeto 'bib_arqs.o'.
 
+
+**Resposta:**
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "bib_arqs.h"
+
+
+char* le_arq_texto(char *nome_arquivo){
+  FILE *fp = fopen(nome_arquivo, "r");
+  long fsize;
+  int tamanho = tam_arq_texto(char *nome_arquivo);
+  char *string = malloc(sizeof(char)*tamanho);
+
+  if(!fp){
+    printf("Erro ao abrir o arquivo. Saindo do programa.\n");
+    exit(1);
+  }
+
+  fread(string, tamanho, 1, fp);
+  fclose(fp);
+  free(string);
+  return string;
+}
+
+
+int tam_arq_texto(char *nome_arquivo){
+  FILE *h;
+  int i;
+  char c;
+
+  h = fopen(nome_arquivo, "r");
+  if(!h){
+    printf("Erro ao abrir o arquivo. Saindo do programa.\n");
+    exit(1);
+  }
+  fseek(h, 0, SEEK_END);
+  i = ftell(h);
+  fclose(h);
+return i;
+}
+
+//bib_arqs.h
+int tam_arq_texto(char *nome_arquivo);
+char* le_arq_texto(char *nome_arquivo);
+
+
+``` 
+
+
 6. Crie um código em C que copia a funcionalidade básica do comando `cat`: escrever o conteúdo de um arquivo-texto no terminal. Reaproveite as funções já criadas nas questões anteriores. Por exemplo, considerando que o código criado recebeu o nome de 'cat_falsificado':
 
 ```bash
