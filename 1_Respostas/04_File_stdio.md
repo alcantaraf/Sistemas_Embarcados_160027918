@@ -251,6 +251,37 @@ $ 'Ola' ocorre 2 vezes no arquivo 'ola.txt'.
 **Resposta:**
 
 ```C
+//Makefile
+num_caracs_1: main.o bib_arqs.o
+	gcc $(CFLAGS) -o busca_e_conta main.o bib_arqs.o
+main.o: main.c bib_arqs.h
+	gcc $(CFLAGS) -c main.c
+num_caracs.o: bib_arqs.c bib_arqs.h
+	gcc $(CFLAGS) -c bib_arqs.c
+clean:
+	rm -f *.o busca_e_conta
+//main.c	
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "bib_arqs.h"
+
+int main(int argc, char **argv)
+{
+	int tamanho_2 = tam_arq_texto(argv[2]),tamanho_1;
+  int busca=0, i, conta=0;
+	char *texto = malloc(sizeof(char)*tamanho_2);
+	texto = le_arq_texto(argv[2]);
+	tamanho_1 = strlen(argv[1]);
+	for(i = 0; i <= tamanho_2; i+= sizeof(char)){
+		busca = strncmp(argv[1],texto+i,tamanho_1);
+		if(busca == 0)
+			conta++;
+	}
+	printf("'%s' ocorre %d vezes no arquivo '%s'.\n", argv[1], conta, argv[2]);
+	free(texto);
+	return 0;
+}
 
 
 ```
