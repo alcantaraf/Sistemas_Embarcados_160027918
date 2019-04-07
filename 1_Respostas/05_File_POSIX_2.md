@@ -89,6 +89,35 @@ $ Idade: 30 anos
 
 **Repostas:**
 ```C
+#include <stdio.h>
+#include <string.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+int main(int argc, const char * argv[])
+{
+	int fp;
+	char nome[20], idade[4],txt[5] =".txt",arq[100]="";
+  strcat(arq,argv[1]);
+  strcat(arq,txt);
+	fp = open(arq, O_RDWR | O_CREAT, S_IRWXU | S_IRUSR);
+		if(fp==-1)
+		{
+			printf("Erro na abertura do arquivo.\n");
+			exit(-1);
+		}
+	printf("Escrevendo nome: %s\n",argv[1]);
+	write(fp,"Nome: ", strlen("Nome: "));
+	write(fp, argv[1], strlen(argv[1]));
+	write(fp,"\n", 1);
+	printf("Escrevendo nome: %s\n",argv[2]);
+	write(fp,"Idade: ", strlen("Idade: "));
+	write(fp,argv[2], strlen(argv[2]));
+	write(fp," anos\n", strlen(" anos\n"));
+	close(fp);
+
+	return 0;
+}
 
 ``` 
 
