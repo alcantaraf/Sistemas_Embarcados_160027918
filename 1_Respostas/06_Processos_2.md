@@ -1,5 +1,32 @@
 #### 1. Crie um código em C para gerar três processos-filho usando o `fork()`.
 
+**Respostas:**
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main(int argc, char *argv){
+	int i,pid_filho;
+
+	for(i = 1; i <argc;i++){
+		pid_filho = fork();
+		if(pid_filho==0){
+			printf("Filho %d criado!", i+1);
+			return -1;
+		}
+		else{
+			wait(NULL);
+		}
+	}
+}
+
+```
+
+
 #### 2. Crie um código em C que recebe o nome de diversos comandos pelos argumentos de entrada (`argc` e `*argv[]`), e executa cada um sequencialmente usando `system()`. Por exemplo, considerando que o código criado recebeu o nome de 'serial_system', e que ele foi executado na pasta '/Sistemas_Embarcados/Code/06_Processos', que contem diversos arquivos:
 
 ```bash
@@ -18,7 +45,52 @@ $ 19 20 21 22 23 24 25
 $ 26 27 28 29 30 31
 ```
 
+**Respostas:**
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(int argc, char *argv){
+	int i;
+	
+	for(i = 1; i <argc;i++){
+		system(arcv[i]);
+	}
+}
+
+```
+
 #### 3. Crie um código em C que recebe o nome de diversos comandos pelos argumentos de entrada (`argc` e `*argv[]`), e executa cada um usando `fork()` e `exec()`.
+
+
+**Respostas:**
+
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/types.h>
+#include <unistd.h>
+
+int main(int argc, char *argv){
+	int i,pid_filho;
+	char *lista_de_argumentos[]={NULL,NULL}
+	for(i = 1; i <argc;i++){
+		pid_filho = fork();
+		if(pid_filho==0){
+			lista_args[0] = argv[i];
+			execvp(lista_de_argumentos[0],lista_de_argumentos);
+			return -1;
+		}
+		else{
+			wait(NULL);
+		}
+	}
+}
+
+```
 
 #### 4. Crie um código em C que gera três processos-filho usando o `fork()`, e que cada processo-filho chama a seguinte função uma vez:
 
