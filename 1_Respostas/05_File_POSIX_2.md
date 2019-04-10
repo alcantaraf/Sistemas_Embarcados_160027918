@@ -126,6 +126,30 @@ int main(int argc, const char * argv[])
 
 **Repostas:**
 ```C
+// bib_arqs.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include "bib_arqs.h"
+
+int tam_arq_texto(char *nome_arquivo){
+  int fp;
+  int i;
+  char c;
+  fp = open(nome_arquivo, O_RDONLY );
+  if(fp == -1){
+    printf("Erro ao abrir o arquivo. Saindo do programa.\n");
+    exit(-1);
+  }
+  while((read(fp,&c,1)) != 0){
+    i++;
+  }
+  close(fp);
+return i;
+}
+// bib_arqs.h
+int tam_arq_texto(char *nome_arquivo);
 
 ``` 
 
