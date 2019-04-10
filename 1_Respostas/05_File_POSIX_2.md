@@ -157,7 +157,47 @@ int tam_arq_texto(char *nome_arquivo);
 
 **Repostas:**
 ```C
+//bib_arqs.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include "bib_arqs.h"
 
+int tam_arq_texto(char *nome_arquivo){
+  int fp;
+  int i;
+  char c;
+  fp = open(nome_arquivo, O_RDONLY );
+  if(fp == -1){
+    printf("Erro ao abrir o arquivo. Saindo do programa.\n");
+    exit(-1);
+  }
+  while((read(fp,&c,1)) != 0){
+    i++;
+  }
+  close(fp);
+return i;
+}
+
+char* le_arq_texto(char *nome_arquivo){
+  int fp;
+  int tamanho = tam_arq_texto(nome_arquivo);
+  char *string = malloc(sizeof(char)*tamanho);
+
+  fp = open(nome_arquivo, O_RDONLY);
+  if(fp == -1){
+    printf("Erro ao abrir o arquivo. Saindo do programa.\n");
+    exit(1);
+  }
+  read(fp, string, tamanho);
+
+  close(fp);
+  return string;
+}
+//bib_arqs.h
+int tam_arq_texto(char *nome_arquivo);
+char* le_arq_texto(char *nome_arquivo);
 ``` 
 
 #### 6. Crie um código em C que copia a funcionalidade básica do comando `cat`: escrever o conteúdo de um arquivo-texto no terminal. Reaproveite as funções já criadas nas questões anteriores. Por exemplo, considerando que o código criado recebeu o nome de 'cat_falsificado':
