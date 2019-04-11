@@ -209,8 +209,7 @@ $ Ola mundo cruel! Ola universo ingrato!
 ```
 
 **Repostas:**
-```C
-// Makefile
+//Makefile
 bib_arqs: main.o bib_arqs.o
 	gcc $(CFLAGS) -o cat_falsificado main.o bib_arqs.o
 main.o: main.c bib_arqs.h
@@ -219,6 +218,7 @@ bib_arqs.o: bib_arqs.c bib_arqs.h
 	gcc $(CFLAGS) -c bib_arqs.c
 clean:
 	rm -f *.o cat_falsificado
+```C
 //main.c
 #include <stdio.h>
 #include <stdlib.h>
