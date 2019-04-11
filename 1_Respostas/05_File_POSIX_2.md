@@ -210,6 +210,31 @@ $ Ola mundo cruel! Ola universo ingrato!
 
 **Repostas:**
 ```C
+// Makefile
+bib_arqs: main.o bib_arqs.o
+	gcc $(CFLAGS) -o cat_falsificado main.o bib_arqs.o
+main.o: main.c bib_arqs.h
+	gcc $(CFLAGS) -c main.c
+bib_arqs.o: bib_arqs.c bib_arqs.h
+	gcc $(CFLAGS) -c bib_arqs.c
+clean:
+	rm -f *.o cat_falsificado
+//main.c
+#include <stdio.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include "bib_arqs.h"
+
+int main(int argc, char **argv)
+{
+	int tamanho = tam_arq_texto(argv[1]);
+	char *texto = malloc(sizeof(char)*tamanho);
+	texto = le_arq_texto(argv[1]);
+	printf("%s", texto);
+	free(texto);
+	return 0;
+}
 
 ``` 
 
