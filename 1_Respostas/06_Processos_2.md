@@ -149,3 +149,57 @@ $ v_global = 1
 
 ``` 
 #### 5. Repita a questão anterior, mas desta vez faça com que o processo-pai também chame a função `Incrementa_Variavel_Global()`. Responda: a variável global `v_global` foi compartilhada por todos os processos-filho e o processo-pai, ou cada processo enxergou um valor diferente para esta variável?
+
+
+**Reposta:**
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int v_global = 0; // Variavel global para este exemplo
+void Incrementa_Variavel_Global(pid_t id_atual)
+{
+	v_global++;
+	printf("ID do processo que executou esta funcao = %d\n", id_atual);
+	printf("v_global = %d\n", v_global);
+}
+
+int main(int argc, const char * argv[]){
+  int i, pid_filho;
+  for(i=0;i<=2;i++){
+    pid_filho = fork();
+    if(pid_filho != 0){
+      wait(NULL);
+      Incrementa_Variavel_Global(getpid());
+    }
+    else{
+      Incrementa_Variavel_Global(getpid());
+      return -1;
+    }
+
+  }
+  return 0;
+}
+
+```
+Cada processo enxerga um valor diferente para a variavél, porém como o processo pai incrementa a variável global, os processos filhos incrementão seguindo a ordem.
+```bash
+$ ./a.out 
+$ ID do processo que executou esta funcao = 6291
+$ v_global = 1
+$ ID do processo que executou esta funcao = 6290
+$ v_global = 1
+$ ID do processo que executou esta funcao = 6292
+$ v_global = 2
+$ ID do processo que executou esta funcao = 6290
+$ v_global = 2
+$ ID do processo que executou esta funcao = 6293
+$ v_global = 3
+$ ID do processo que executou esta funcao = 6290
+$ v_global = 3
+
+
+``` 
