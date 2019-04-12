@@ -104,6 +104,38 @@ void Incrementa_Variavel_Global(pid_t id_atual)
 }
 ```
 
-(Repare que a função `Incrementa_Variavel_Global()` recebe como entrada o ID do processo que a chamou.) Responda: a variável global `v_global` foi compartilhada por todos os processos-filho, ou cada processo enxergou um valor diferente para esta variável?
+#### (Repare que a função `Incrementa_Variavel_Global()` recebe como entrada o ID do processo que a chamou.) Responda: a variável global `v_global` foi compartilhada por todos os processos-filho, ou cada processo enxergou um valor diferente para esta variável?
+
+**Reposta:**
+```C
+#include <stdio.h>
+#include <stdlib.h>
+#include <sys/types.h>
+#include <unistd.h>
+#include <sys/wait.h>
+
+int v_global = 0; // Variavel global para este exemplo
+void Incrementa_Variavel_Global(pid_t id_atual)
+{
+	v_global++;
+	printf("ID do processo que executou esta funcao = %d\n", id_atual);
+	printf("v_global = %d\n", v_global);
+}
+
+int main(int argc, const char * argv[]){
+  int i, pid_filho;
+  for(i=0;i<=2;i++){
+    pid_filho = fork();
+    if(pid_filho != 0){
+      wait(NULL);
+    }
+    else{
+      Incrementa_Variavel_Global(getpid());
+      return -1;
+    }
+  }
+  return 0;
+}
+```
 
 #### 5. Repita a questão anterior, mas desta vez faça com que o processo-pai também chame a função `Incrementa_Variavel_Global()`. Responda: a variável global `v_global` foi compartilhada por todos os processos-filho e o processo-pai, ou cada processo enxergou um valor diferente para esta variável?
