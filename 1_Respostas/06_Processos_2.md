@@ -137,5 +137,15 @@ int main(int argc, const char * argv[]){
   return 0;
 }
 ```
+Cada processo enxerga um valor diferente para a variavél.
+```bash
+$ ./a.out 
+$ ID do processo que executou esta funcao = 6071
+$ v_global = 1
+$ ID do processo que executou esta funcao = 6072
+$ v_global = 1
+$ ID do processo que executou esta funcao = 6073
+$ v_global = 1
 
+``` 
 #### 5. Repita a questão anterior, mas desta vez faça com que o processo-pai também chame a função `Incrementa_Variavel_Global()`. Responda: a variável global `v_global` foi compartilhada por todos os processos-filho e o processo-pai, ou cada processo enxergou um valor diferente para esta variável?
