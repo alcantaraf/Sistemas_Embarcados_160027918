@@ -1,16 +1,16 @@
 #### 1. Especifique algumas portas importantes pré-definidas para o protocolo TCP/IP.
 **Respostas:**
-Porta	Serviço ou Aplicativo
-21	FTP
-23	Telnet
-25	SMTP
-53	DNS (Nome do domínio do Sistema)
-63	Whois
-70	Gopher
-79	Finger
-80	HTTP
-110	POP3
-119	NNTP
+
+Porta 21	FTP ||
+Porta 23	Telnet ||
+Porta 25	SMTP ||
+Porta 53	DNS ||
+Porta 63	Whois ||
+Porta 70	Gopher ||
+Porta 79	Finger ||
+Porta 80	HTTP ||
+Porta 110	POP3 ||
+Porta 119	NNTP ||
 
 #### 2. Com relação a endereços IP, responda:
 
