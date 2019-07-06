@@ -16,8 +16,8 @@ Porta	Serviço ou Aplicativo
 
 ##### (a) Qual é a diferença entre endereços IP externos e locais?
 **Respostas:**
-
-Os indereços locais são apenas utilizados 
+IP local é o endereço que o seu roteador atribui à sua máquina na rede local. Cada aparelho (notebook, desktop, smartphone, tablet, TV) possui um diferente, e ele pode mudar de tempos em tempos.
+IP externo, o IP que a provedora de internet forneceu para a sua residência/empresa. 
 
 ##### (b) Como endereços IP externos são definidos? Quem os define?
 **Respostas:**
