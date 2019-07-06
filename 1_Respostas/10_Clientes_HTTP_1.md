@@ -10,7 +10,7 @@ Porta 70	Gopher ||
 Porta 79	Finger ||
 Porta 80	HTTP ||
 Porta 110	POP3 ||
-Porta 119	NNTP ||
+Porta 119	NNTP 
 
 #### 2. Com relação a endereços IP, responda:
 
