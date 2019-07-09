@@ -2,15 +2,15 @@
 
 #### (a) Quais são as características básicas deste modelo?
 **Respostas:**
-Este modelo possui duas partes o cliente e o servidor que são conectados com uma espécie de pipe chamada socket e podem ter duas configurações/protocolos Stream (TCP - Transmission Control Protocol) ou Datagram (UDP - User Datagram Protocol). Dentro de uma desssa configurações as partes conseguem trocar informações.
+Existe um requirente de serviço o cliente e o fornecedor, servidor, tendo que haver uma comunicação entre ambas as partes.
 
 #### (b) Quais são as características básicas do servidor?
 **Respostas:**
-Os servidores são abientes de processamentos ou de armazenamento de dados. Ambos de protocolo TCP e UDP precisam ser credenciados com com endereços locais de IP e número de porta de protocolo. Porém, para a configuração TCP é preciso ainda configurá-lo como passivo e submisso às requisições de clientes e então as requisições de conexão devem ser aceitas com a criação de um novo socket para a tranmissão de dados que ao final é fechado.
+Os servidores são abientes de processamentos ou de armazenamento de dados. Ambos de protocolo TCP e UDP precisam ser credenciados com com endereços locais de IP e número de porta de protocolo. Sempre recebendo pedidos do clientes, atendendo e respondendo.
 
 #### (c) Quais são as características básicas do cliente?
 **Respostas:**
-Os clientes são plataformas que comunicam com o servidor de forma direta e precisam estar configurados corretamente e serem aceitos pelo servidor.
+Os clientes são plataformas que comunicam com o servidor de forma direta, enviando pedidos e aguardando respostas do servidor.
 
 ### 2.  Com relação ao protocolo de comunicação da internet, responda:
   
@@ -20,7 +20,7 @@ Protocolos de comunicação são métodos para transferência de dados entre um 
 
 #### (b) Quais são as características básicas de protocolos de comunicação?
 **Respostas:**
-Suas características básicas advém do modelo cliente servidor, por tanto possuem um estágio de criação e configuração e um outro para transmissão de dados. 
+Estes têm regras para transmitir informação entre sistemas, onde o que emite e o que recebe devem estar programados para o mesmo protocolo, visando a manuteção da informação.
 
 ### 3. Com relação ao protocolo TCP, responda:
 
