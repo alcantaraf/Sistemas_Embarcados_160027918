@@ -1,12 +1,12 @@
-#### 1. Quais são as vantagens e desvantagens em utilizar:
+### 1. Quais são as vantagens e desvantagens em utilizar:
 
-##### (a) fork?
+#### (a) fork?
 **Respostas:**
-##### (b) threads?
+#### (b) threads?
 **Respostas:**
-#### 2. Quantas threads serão criadas após as linhas de código a seguir? Quantas coexistirão? Por quê?
+### 2. Quantas threads serão criadas após as linhas de código a seguir? Quantas coexistirão? Por quê?
 
-##### (a)
+#### (a)
 
 ```C
 void* funcao_thread_1(void *arg);
@@ -23,7 +23,7 @@ int main (int argc, char** argv)
 }
 ```
 **Respostas:**
-##### (b)
+#### (b)
 ```C
 void* funcao_thread_1(void *arg);
 void* funcao_thread_2(void *arg);
@@ -39,9 +39,9 @@ int main (int argc, char** argv)
 }
 ```
 **Respostas:**
-#### 3. Apresente as características e utilidades das seguintes funções:
+### 3. Apresente as características e utilidades das seguintes funções:
 ***(DICA: elas são relacionadas à função pthread_cancel().)***
-##### (a) `pthread_setcancelstate()`
+#### (a) `pthread_setcancelstate()`
 **Respostas:**
-##### (b) `pthread_setcanceltype()`
+#### (b) `pthread_setcanceltype()`
 **Respostas:**
